@@ -17,9 +17,9 @@
         
         <form action="traitement.php" method="post">
             <p>
-                <label for="name>
+                <label for="name">
                     Nom du produit :
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
                     <!-- Remarque 1 : la balise <input> dispose d'un attribut name, pour permettre à la requête de classer le contenu de la saisie dans des clés portant le nom choisi -->
                     <!-- var_dump($_POST) affichera (après saisie et soumission du formulaire) :
 
@@ -37,13 +37,13 @@
                  Cela signifie que pour que le lien fonctionne, la valeur de 'for' dans le '<label>' doit correspondre à la valeur de 'id' dans la balise '<input>'. -->
                 <label for="price">
                     Prix du produit :
-                    <input type="number" step="any" id="price" name="price"> <!-- idem Remarque 1 et en définissant step="any", les utilisateurs sont autorisés à entrer des valeurs décimales, y compris des fractions, sans aucune restriction. Cela signifie que les utilisateurs peuvent saisir n'importe quel nombre, que ce soit un entier, un nombre décimal avec une précision arbitraire, ou même un nombre irrationnel. -->
+                    <input type="number" step="any" id="price" name="price" required> <!-- idem Remarque 1 et en définissant step="any", les utilisateurs sont autorisés à entrer des valeurs décimales, y compris des fractions, sans aucune restriction. Cela signifie que les utilisateurs peuvent saisir n'importe quel nombre, que ce soit un entier, un nombre décimal avec une précision arbitraire, ou même un nombre irrationnel. -->
                 </label>
             </p>
             <p>
                 <label for="qtt">
                     Quantité désirée :
-                    <input type="number" id="qtt" name="qtt" value="1"> <!-- idem Remarque 1 et valeur par défaut = 1 -->
+                    <input type="number" id="qtt" name="qtt" value="1" min="1" required> <!-- idem Remarque 1 et valeur par défaut = 1 et au minimum 1 -->
                 </label>
             </p>
             <p>
