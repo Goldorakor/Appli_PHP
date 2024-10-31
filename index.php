@@ -17,9 +17,9 @@
         
         <form action="traitement.php" method="post">
             <p>
-                <label>
+                <label for="name>
                     Nom du produit :
-                    <input type="text" name="name">
+                    <input type="text" id="name" name="name">
                     <!-- Remarque 1 : la balise <input> dispose d'un attribut name, pour permettre à la requête de classer le contenu de la saisie dans des clés portant le nom choisi -->
                     <!-- var_dump($_POST) affichera (après saisie et soumission du formulaire) :
 
@@ -33,15 +33,17 @@
                 </label>
             </p>
             <p>
-                <label>
+                <!-- L'attribut 'for' dans la balise '<label>' fait référence à l'attribut 'id' de la balise '<input>'.
+                 Cela signifie que pour que le lien fonctionne, la valeur de 'for' dans le '<label>' doit correspondre à la valeur de 'id' dans la balise '<input>'. -->
+                <label for="price">
                     Prix du produit :
-                    <input type="number" step="any" name="price"> <!-- idem Remarque 1 -->
+                    <input type="number" step="any" id="price" name="price"> <!-- idem Remarque 1 -->
                 </label>
             </p>
             <p>
-                <label>
+                <label for="qtt">
                     Quantité désirée :
-                    <input type="number" name="qtt" value="1"> <!-- idem Remarque 1 -->
+                    <input type="number" id="qtt" name="qtt" value="1"> <!-- idem Remarque 1 -->
                 </label>
             </p>
             <p>
