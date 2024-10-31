@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -37,7 +37,7 @@
                  Cela signifie que pour que le lien fonctionne, la valeur de 'for' dans le '<label>' doit correspondre à la valeur de 'id' dans la balise '<input>'. -->
                 <label for="price">
                     Prix du produit :
-                    <input type="number" step="any" id="price" name="price"> <!-- idem Remarque 1 -->
+                    <input type="number" step="any" id="price" name="price"> <!-- idem Remarque 1 et en définissant step="any", les utilisateurs sont autorisés à entrer des valeurs décimales, y compris des fractions, sans aucune restriction. Cela signifie que les utilisateurs peuvent saisir n'importe quel nombre, que ce soit un entier, un nombre décimal avec une précision arbitraire, ou même un nombre irrationnel. -->
                 </label>
             </p>
             <p>
