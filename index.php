@@ -11,10 +11,10 @@
             Ajouter un produit
         </h1>
 
-        
         <!-- la balise <form> comporte deux attributs.
             1 : action indique la cible du formulaire, le fichier à atteindre lorsque l'utilisateur soumet le formulaire
             2 : method précise par quelle méthode HTTP les données du formulaire sont transmises au serveur -->
+        
         <form action="traitement.php" method="post">
             <p>
                 <label>
@@ -22,12 +22,12 @@
                     <input type="text" name="name">
                     <!-- Remarque 1 : la balise <input> dispose d'un attribut name, pour permettre à la requête de classer le contenu de la saisie dans des clés portant le nom choisi -->
                     <!-- var_dump($_POST) affichera (après saisie et soumission du formulaire) :
-                    
+
                         array (size=3)
                             'name' -> string 'Pomme' (length=5)
                             'price' -> string '2.5' (length=3)
                             'qtt' -> string '10' (length=2)
-                    
+
                         Les données sont structurées dans le tableau $_POST de la même manière que $_GET, sans être visibles dans l'URL.
                     -->
                 </label>
