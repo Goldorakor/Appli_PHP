@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@
             <p>
                 <label for="qtt">
                     Quantité désirée :
-                    <input type="number" id="qtt" name="qtt" value="1"> <!-- idem Remarque 1 -->
+                    <input type="number" id="qtt" name="qtt" value="1"> <!-- idem Remarque 1 et valeur par défaut = 1 -->
                 </label>
             </p>
             <p>
