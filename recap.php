@@ -11,6 +11,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Z1p0z6r8gfom0y8c6Qw3D87" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/style.css">
     <title>Récapitulatif des produits</title>
 </head>
@@ -50,25 +55,31 @@
                                 "<th>#</th>",
                                 "<th>Nom</th>",
                                 "<th>Prix</th>",
+                                "<th>moins</th>", // on rajoute la colonne pour les moins
                                 "<th>Quantité</th>",
+                                "<th>plus</th>", // on rajoute la colonne pour les plus
                                 "<th>Total</th>",
+                                "<th>poub</th>", // on rajoute une colonne pour les icones poubelles
                             "</tr>",
                         "</thead>",
                         "<tbody>";
 
-                    // avant notre boucle, on initialise une nouvelle variable $toatlGeneral à zéro.
+                    // avant notre boucle, on initialise une nouvelle variable $totalGeneral à zéro.
                     $totalGeneral = 0;
 
-                    foreach($_SESSION['products'] as $index => $product) {
+                    foreach($_SESSION['products'] as $indice => $product) {
 
 
                         // on utilise nos variables à l'intérieur de la boucle foreach() et on affiche chaque produit comme ceci :
                         echo "<tr>",
-                            "<td>".$index."</td>",
+                            "<td>".$indice."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
+                            "<td><a class='btn rouge' href='traitement.php?action=down-qtt&id=$indice'><i class='fa-solid fa-minus'></i></a></td>",
                             "<td>".$product['qtt']."</td>",
+                            "<td><a class='btn vert' href='traitement.php?action=up-qtt&id=$indice'><i class='fa-solid fa-plus'></i></a></td>",
                             "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
+                            "<td><a class='btn orange' href='traitement.php?action=delete&id=$indice'><i class='fa-solid fa-trash'></i></a></td>",
                         "</tr>";
 
 
@@ -80,13 +91,25 @@
                         );
                         */
 
+                        // à chaque passage de boucle, on ajoute le total d'un produit à totalGeneral
                         $totalGeneral += $product['total'];
 
                     }
 
+                    // on initialise une variable result pour obtenir les qtés totales de produits 
+                    
+
                     echo "<tr>",
-                        "<td colspan = 4>Total Général : </td>", // cellule fusionnée de 4 cellules
-                        "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+                        "<td colspan = 4><strong>Total Général : </strong></td>"; // cellule fusionnée de 4 cellules
+                        
+                        
+                    $result = 0;  
+                    foreach($_SESSION['products'] as $index => $product){
+                        $result += $product['qtt'];
+                    } 
+
+                    echo "<td colspan = 2><strong>$result</strong></td>",
+                        "<td colspan = 2><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
                     "</tr>",
                     "</tbody>",
                     "</table>";
@@ -97,31 +120,7 @@
 
                 ?>
 
-                <div class="compteur">
-
-                    <h4 class="count">
-                        Quantité totale de produits :
-                        <?php
-
-                        // si le tableau des produits est mal défini (non défini ou NULL) ou si le tableau est vide, on affichera zéro.
-                        if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
-                            echo "0";
-                        }
-
-                        else {
-                            // on initialise la variable à 0
-                            $result=0;
-
-                            foreach ($_SESSION['products'] as $index => $product) {
-                                // on ajoute la quantité de chaque produit (qui est $product['qtt']) à notre variable $resultat
-                                $result += $product['qtt'];
-                            }
-                            echo $result;
-                        }
-                        ?>
-                    </h4>
-
-                </div>
+                    
                 
             </div>
 
