@@ -60,7 +60,7 @@
                         Cela signifie que pour que le lien fonctionne, la valeur de 'for' dans le '<label>' doit correspondre à la valeur de 'id' dans la balise '<input>'. -->
                         <label for="price">
                             Prix du produit :
-                            <input type='number' step='any' id='price' name="price" class='formu' required> <!-- idem Remarque 1 et en définissant step="any", les utilisateurs sont autorisés à entrer des valeurs décimales, y compris des fractions, sans aucune restriction. Cela signifie que les utilisateurs peuvent saisir n'importe quel nombre, que ce soit un entier, un nombre décimal avec une précision arbitraire, ou même un nombre irrationnel. -->
+                            <input type='number' min='0' id='price' name="price" class='formu' required> <!-- idem Remarque 1 et en définissant step="any", les utilisateurs sont autorisés à entrer des valeurs décimales, y compris des fractions, sans aucune restriction. Cela signifie que les utilisateurs peuvent saisir n'importe quel nombre, que ce soit un entier, un nombre décimal avec une précision arbitraire, ou même un nombre irrationnel. -->
                         </label>
                     </p>
                     <p>
@@ -79,31 +79,11 @@
 
                 <div class="compteur">
 
-                    <h4 class="count">
-                        Quantité totale de produits :
-                        <?php
-
-                        // si le tableau des produits est mal défini (non défini ou NULL) ou si le tableau est vide, on affichera zéro.
-                        if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
-                            echo "0";
-                        }
-
-                        else {
-                            // on initialise la variable à 0
-                            $result=0;
-
-                            foreach ($_SESSION['products'] as $index => $product) {
-                                // on ajoute la quantité de chaque produit (qui est $product['qtt']) à notre variable $resultat
-                                $result += $product['qtt'];
-                            }
-                            echo $result;
-                        }
-                        ?>
-                    </h4>
+                    
 
                     <!-- le div qui contient le message à afficher : réussite ou erreur -->
                     
-                    <div class = "message">
+                    <div class='message'>
                         <?php  
 
                         // si la variable success est mal définie ou NULL, on n'affiche rien.
@@ -133,6 +113,28 @@
                         ?>
 
                     </div>
+
+                    <h4 class="count">
+                        Quantité totale de produits :
+                        <?php
+
+                        // si le tableau des produits est mal défini (non défini ou NULL) ou si le tableau est vide, on affichera zéro.
+                        if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
+                            echo "0";
+                        }
+
+                        else {
+                            // on initialise la variable à 0
+                            $result=0;
+
+                            foreach ($_SESSION['products'] as $index => $product) {
+                                // on ajoute la quantité de chaque produit (qui est $product['qtt']) à notre variable $resultat
+                                $result += $product['qtt'];
+                            }
+                            echo $result;
+                        }
+                        ?>
+                    </h4>
             
                 </div>
                 

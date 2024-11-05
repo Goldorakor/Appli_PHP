@@ -100,7 +100,7 @@
                     
 
                     echo "<tr>",
-                        "<td colspan=4 id='ta01'><strong>Total Général : </strong></td>"; // cellule fusionnée de 4 cellules
+                        "<td colspan=4><span id='ta01'>Total Général :</span></td>"; // cellule fusionnée de 4 cellules
                         
                         
                     $result = 0;  
@@ -108,8 +108,8 @@
                         $result += $product['qtt'];
                     } 
 
-                    echo "<td colspan=2 id='ta02'><strong>$result articles</strong></td>",
-                        "<td colspan=2 id='ta03'><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+                    echo "<td colspan=2><span id='ta02'>$result articles</span></td>",
+                        "<td colspan=2><span id='ta03'>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</span></td>",
                     "</tr>",
                     "</tbody>",
                     "</table>";
@@ -127,26 +127,37 @@
 
             
             <div class='vidage'>
-                <?php
+                <div class='vid'>
+                    <?php
+                    
+                    if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+                        echo"<p id='vid1'>Panier vide</p>";
+                    } else {
+                        // href="traitement.php?action=clear" : l'attribut href définit la destination du lien. Ici, il pointe vers traitement.php avec un paramètre de requête action=clear ajouté dans l'URL. Cela signifie que lorsque l'utilisateur clique sur le lien, il est redirigé vers traitement.php avec l'action "clear".
+                        echo "<a class='soumis' href='traitement.php?action=clear'>Vider le panier</a>";
+                        
+                    }
+
+                    ?>
+                </div>
+
+                <div class='vide'>
+                    <?php
+                            
+                    if(!isset($_SESSION['message']) || empty($_SESSION['message'])){
+                        echo "<p id='vid2'></p>";
+                    } else {
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']); 
+                    
+                     }
             
-                if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-                    echo"Panier vide";
-                } else {
-                    // href="traitement.php?action=clear" : l'attribut href définit la destination du lien. Ici, il pointe vers traitement.php avec un paramètre de requête action=clear ajouté dans l'URL. Cela signifie que lorsque l'utilisateur clique sur le lien, il est redirigé vers traitement.php avec l'action "clear".
-                    echo '<a class="clear" href="traitement.php?action=clear">Vider le panier</a>';
-                    
-                }
+                    ?>
+                </div>
+                
 
-                if(!isset($_SESSION['message']) || empty($_SESSION['message'])){
-                    echo "";
-                } else {
-                    echo $_SESSION['message']; 
-                    unset($_SESSION['message']); 
-                    
-                }
-
-                ?>
-            </div>
+                
+                </div>
 
         </main>
     </div>

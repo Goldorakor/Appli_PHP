@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+ *{
+  box-sizing: border-box;
+  padding: 0;
+  margin : 0;
+  font-family: 'Poppins';
+  color: rgb(255, 255, 255);
+}
+
+
+body {
+    background:rgb(180, 180, 180) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper {
+    background-color:rgb(45, 125, 230) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border-radius: 7px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none; /* on enlève l'indice de la chaine à puces */
+    /* text-decoration: none; */
+    background:rgb(10, 100, 240) ;
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+}
+
+.navbar:hover {
+    background:rgb(5, 40, 95) ;
+}
+
+
+
+.navbar a:link {  /* le lien hypertexte n'est pas rendu visible par un décor */
+    text-decoration: none; 
+    color: white;
+} 
+.navbar a:visited { /* le lien hypertexte cliqué n'est pas rendu visible par un décor */
+    text-decoration: none;
+    color: white;
+} 
+
+.vidage a:link {  /* le lien hypertexte n'est pas rendu visible par un décor */
+    text-decoration: none; 
+    color: white;
+} 
+.vidage a:visited { /* le lien hypertexte cliqué n'est pas rendu visible par un décor */
+    text-decoration: none; 
+    color: white;
+} 
+
+.vidage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+#vid1 {
+    text-decoration: none; 
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+    background:rgb(235, 30, 30) ;
+}
+
+
+
+#vid1:hover {
+    background:rgb(235, 30, 30) ;
+}
+
+
+#vid2 {
+    text-decoration: none; 
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+    background-color:rgb(45, 125, 230) ;
+}
+
+
+
+#vid2:hover {
+    background-color:rgb(45, 125, 230) ;
+}
+
+
+
+.affichageProduits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.ajoutProduit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.table {
+    border:rgb(224, 224, 224);
+    color: rgb(104, 221, 8);
+}
+
+th {
+    text-align: center;
+    border : 1px solid;
+
+}
+
+
+td {
+    text-align: center;
+    border : 1px solid;
+    color: black;
+}
+
+
+
+.soumettre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.soumis {
+    text-decoration: none; 
+    background:rgb(235, 30, 30) ;
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+    border: 0;
+}
+
+.soumis:hover {
+    background-color: rgb(160, 40, 40);
+
+}
+
+.count {
+    background:rgb(45, 125, 230) ;
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+}
+
+
+.message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:rgb(45, 125, 230) ;
+    margin: 20px 20px;
+    padding : 5px 10px;
+    border-radius: 7px;
+}
+
+
+.btn {
+    height : 40px;
+    width: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.vert {
+    background-color: green;
+}
+
+.vert:hover {
+    background-color: rgb(0, 75, 0);
+}
+
+.rouge {
+    background-color: rgb(235, 30, 30);
+}
+
+.rouge:hover {
+    background-color: rgb(160, 40, 40);
+}
+
+.orange {
+    background-color: rgb(255, 165, 0);
+}
+
+.orange:hover {
+    background-color: rgb(200, 130, 0);
+}
+
+
+
+#name {
+    color: rgb(135, 135, 135);
+}
+
+#price {
+    color: rgb(135, 135, 135);
+}
+
+#qtt {
+    color: rgb(135, 135, 135);
+}
+
+
+#tatata {
+    border: 0;
+    color: black;
+}
+
+
+#ta01 {
+    color: black;
+    font-weight: bold;
+}
+
+#ta02 {
+    color: black;
+    font-weight: bold;
+}
+
+#ta03 {
+    color: black;
+    font-weight: bold;
+}
