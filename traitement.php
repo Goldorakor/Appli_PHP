@@ -43,7 +43,7 @@
             
             
                         // on crée une variable success, qui confirmera le bon enregistrement du produit
-                        $_SESSION['success'] = "Précédent produit enregistré avec succès";
+                        $_SESSION['success'] = "Le produit a été enregistré avec succès";
                         header("Location: index.php");
             
             

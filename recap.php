@@ -12,10 +12,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Z1p0z6r8gfom0y8c6Qw3D87" crossorigin="anonymous">
-
+    
     <link rel="stylesheet" href="css/style.css">
     <title>Récapitulatif des produits</title>
 </head>
@@ -25,15 +25,15 @@
         <nav>
             <ul class="navbar" id="navbar">
                 <li class="menu">
-                    <a href="index.php">Vers index.php</a>
+                    <a href="index.php">Ajouter un produit</a>
                 </li>
             </ul>   
         </nav>
         
-        <main class="affichageProduits">
+        <main class='affichageProduits'>
             <h1>Liste de mes produits</h1>
             
-            <div class="tableau">
+            <div id="tableau">
                 <?php 
                 
                 //var_dump($_SESSION);
@@ -49,17 +49,17 @@
 
                 // Il ne nous reste plus qu'à afficher le contenu de $_SESSION['products'] dans la partie else de notre condition.
                 else {
-                    echo "<table class='tableau' border=1>",
+                    echo "<table class='table table-striped' id='tatata'>",
                         "<thead>",
                             "<tr>",
                                 "<th>#</th>",
                                 "<th>Nom</th>",
                                 "<th>Prix</th>",
-                                "<th>moins</th>", // on rajoute la colonne pour les moins
+                                "<th></th>", // on rajoute la colonne pour les moins
                                 "<th>Quantité</th>",
-                                "<th>plus</th>", // on rajoute la colonne pour les plus
+                                "<th></th>", // on rajoute la colonne pour les plus
                                 "<th>Total</th>",
-                                "<th>poub</th>", // on rajoute une colonne pour les icones poubelles
+                                "<th></th>", // on rajoute une colonne pour les icones poubelles
                             "</tr>",
                         "</thead>",
                         "<tbody>";
@@ -100,7 +100,7 @@
                     
 
                     echo "<tr>",
-                        "<td colspan = 4><strong>Total Général : </strong></td>"; // cellule fusionnée de 4 cellules
+                        "<td colspan=4 id='ta01'><strong>Total Général : </strong></td>"; // cellule fusionnée de 4 cellules
                         
                         
                     $result = 0;  
@@ -108,8 +108,8 @@
                         $result += $product['qtt'];
                     } 
 
-                    echo "<td colspan = 2><strong>$result</strong></td>",
-                        "<td colspan = 2><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+                    echo "<td colspan=2 id='ta02'><strong>$result articles</strong></td>",
+                        "<td colspan=2 id='ta03'><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
                     "</tr>",
                     "</tbody>",
                     "</table>";
@@ -126,11 +126,11 @@
 
 
             
-            <div class="vidage">
+            <div class='vidage'>
                 <?php
             
                 if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-                    echo"";
+                    echo"Panier vide";
                 } else {
                     // href="traitement.php?action=clear" : l'attribut href définit la destination du lien. Ici, il pointe vers traitement.php avec un paramètre de requête action=clear ajouté dans l'URL. Cela signifie que lorsque l'utilisateur clique sur le lien, il est redirigé vers traitement.php avec l'action "clear".
                     echo '<a class="clear" href="traitement.php?action=clear">Vider le panier</a>';
@@ -140,8 +140,8 @@
                 if(!isset($_SESSION['message']) || empty($_SESSION['message'])){
                     echo "";
                 } else {
-                    echo $_SESSION["message"]; 
-                    unset($_SESSION["message"]); 
+                    echo $_SESSION['message']; 
+                    unset($_SESSION['message']); 
                     
                 }
 
