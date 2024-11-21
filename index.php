@@ -39,6 +39,30 @@
                 
                     <!-- ?action=add à ajouter car le fichier traitement.php propose beaucoup de choses et pas juste l'ajout de produit : il faut donc bien cibler -->
                     <form action="traitement.php?action=add" method="post">
+                    <!-- 
+                        exemple si on voulait faire passer le action par la méthode POST :
+                        <form action="traitement.php" method="post">
+                        <input type="hidden" name="action" value="add">
+                        <!-- Autres champs -->
+                        </form>
+
+
+                dans traitement.php, on aurait ceci : 
+                
+                        session_start();
+        
+                        if (isset($_POST['action'])) {
+                        switch ($_POST['action']) {
+                            case 'add':
+                            // Traitement de l'ajout
+                            break;
+                            // Autres cas
+                    }
+                }
+
+                        -->
+
+                        
                     <p>
                         <label for="name">
                             Nom du produit :
